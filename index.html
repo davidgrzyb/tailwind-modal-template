@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind & Alpine.js Modal Template</title>
+    <meta name="author" content="David Grzyb">
+    <meta name="description" content="">
+
+    <!-- Tailwind -->
+    <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Alpine -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.min.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+        .karla {
+            font-family: karla;
+        }
+    </style>
+</head>
+<body class="container mx-auto karla">
+    <div class="py-10">
+        <h1 class="font-bold text-4xl text-center">Lorem Ipsum</h1>
+    </div>
+    <div class="mb-10">
+        <p class="mb-6">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu rutrum lorem. Nam sit amet faucibus purus. In tristique justo a convallis consectetur. Sed sed rutrum mi, quis tincidunt justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris lobortis semper euismod. Aenean quis rhoncus ipsum, sed posuere lacus. Fusce nulla mauris, pharetra vitae nisi sit amet, convallis pellentesque odio. In rhoncus elit sit amet massa euismod imperdiet. Praesent porta metus convallis sem congue consectetur. Nam eget augue ex.
+        </p>
+        <p class="mb-6">
+            Fusce elit mauris, tincidunt ut arcu a, facilisis iaculis odio. Nulla lobortis odio finibus congue euismod. Suspendisse potenti. Duis porttitor quam sem, nec convallis sapien rutrum ac. Integer ultrices odio scelerisque, vehicula velit et, consequat erat. Suspendisse rhoncus quis orci sed condimentum. Pellentesque sed est a diam suscipit dictum vitae vitae diam. Proin ac finibus dolor, a auctor mauris. Sed in tortor ac libero tincidunt lobortis. Nunc ut aliquam eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        </p>
+        <p class="mb-6">
+            Ut lobortis gravida accumsan. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas ut fermentum dui. Suspendisse ultrices, metus et tempor ultricies, erat ipsum tincidunt tortor, sed tristique justo arcu sed tortor. Morbi viverra quam nec vestibulum pellentesque. Fusce finibus pulvinar odio, bibendum dignissim lectus iaculis mattis. Phasellus vel mauris ac arcu congue lacinia ut id enim. Praesent sit amet aliquam orci. Nulla tempus id tortor id ornare. Etiam ullamcorper ante sed dolor hendrerit rhoncus. Sed sodales dignissim dui non sollicitudin. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi ultrices porta ex vel finibus. Morbi nec condimentum mauris. Vestibulum placerat nibh mauris, quis scelerisque nibh venenatis ut. Aliquam commodo diam sed elit convallis porta.
+        </p>
+        <p class="mb-6">
+            Nunc justo ex, tincidunt at placerat et, cursus in dui. Suspendisse potenti. Curabitur hendrerit risus ut nunc pulvinar, feugiat auctor sem ornare. Praesent sodales id nisl eu finibus. Cras lorem odio, laoreet vitae magna ut, vulputate dapibus felis. Vestibulum interdum dui nec ipsum bibendum placerat. In non sagittis ligula. Integer viverra libero vitae lorem ornare, et lobortis turpis fermentum. Pellentesque elementum pellentesque bibendum. In hac habitasse platea dictumst. Nulla congue leo a rutrum faucibus. Nullam lectus tortor, vulputate vel massa non, pellentesque fringilla ante. Praesent interdum erat et enim commodo, a viverra dolor mollis. Mauris a vulputate elit. Praesent eget varius justo. Nam lacinia lacus nisi, blandit auctor nunc aliquam sit amet.
+        </p>
+        <p class="mb-6">
+            Ut consequat et dui vitae pharetra. Duis iaculis tortor eget dolor feugiat egestas sit amet iaculis velit. Aenean eu velit sed mauris egestas hendrerit. Curabitur vitae neque id sapien mattis faucibus eget nec nisi. Nulla sagittis eget diam eu facilisis. Nullam mattis euismod velit, ac rutrum ex consequat quis. Phasellus turpis felis, maximus vitae feugiat non, aliquam et sapien.
+        </p>
+    </div>
+
+    <!-- Modal -->
+    <div 
+        x-data="{ open: false }"
+        x-show.transition.duration.500ms="open"
+        x-init="() => { setTimeout(() => { open = true }, 3000); }"
+        class="fixed inset-0 bg-white bg-opacity-75 flex items-center justify-center px-4 md:px-0"
+    >
+        <div class="flex flex-col max-w-lg bg-white shadow-2xl rounded-lg border-2 border-gray-400 p-6" @click.away="open = false">
+            <div class="flex justify-between mb-4">
+                <h3 class="font-bold text-2xl">Welcome! 🚀</h3>
+                <button @click="open = false">
+                    <svg version="1.1" id="Capa_1" width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
+                        <g>
+                            <g>
+                                <path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
+                                    L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
+                                    c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
+                                    l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
+                                    L284.286,256.002z"/>
+                            </g>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <div class="">
+                <p class="text-center mb-6">Your content goes here! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu rutrum lorem.</p>
+                <img class="w-full h-64" src="https://images.pexels.com/photos/954599/pexels-photo-954599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
